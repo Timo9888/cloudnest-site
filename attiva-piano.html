@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Attivazione Piano - CloudNest</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Completamento Attivazione - CloudNest</title>
+  <link rel="stylesheet" href="attivazione.css">
+  <script defer src="attivazione.js"></script>
+  <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+  <script>
+    (function() {
+      mailjs.init('5dTLT6bmdof0m4HBr'); // Public Key
+    })();
+  </script>
+
 </head>
 <body>
   <div class="container">
-    <h1>Attiva il tuo Piano CloudNest</h1>
+    <img src="Logo/cloudnest-logo.png" alt="Logo CloudNest" class="cloudnest logo">
+    <h1>Completa l'attivazione del tuo account</h1>
     <form id="activation-form">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required />
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required>
 
-      <label for="cognome">Cognome:</label>
-      <input type="text" id="cognome" name="cognome" required />
+      <label for="cognome">Cognome</label>
+      <input type="text" id="cognome" name="cognome" required>
 
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" readonly required />
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" readonly>
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
 
-      <label for="confirm-password">Conferma Password:</label>
-      <input type="password" id="confirm-password" name="confirm-password" required />
+      <label for="confirm-password">Conferma Password</label>
+      <input type="password" id="confirm-password" required>
 
-      <p id="status" style="color: red;"></p>
-
-      <button type="submit">Conferma Account</button>
+      <button type="submit">Conferma Attivazione</button>
     </form>
+    <div id="success-message" class="hidden">Dati inviati! Attendi l'attivazione manuale da parte dell'amministratore.</div>
   </div>
-
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <!-- Il tuo file JS -->
-  <script src="attivazione.js"></script>
 </body>
 </html>
