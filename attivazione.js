@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+  emailjs.init("LA_TUA_PUBLIC_KEY"); // ⬅️ Sostituisci con la tua Public Key di EmailJS
+
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
   const username = document.getElementById('username');
   const form = document.getElementById('activation-form');
   const status = document.getElementById('status');
 
-  // Genera username automatico: iniziale.nome.cognome
+  // Generazione username
   function generaUsername() {
     if (nome.value && cognome.value) {
-      const user = `${nome.value[0].toLowerCase()}.${cognome.value.toLowerCase()}`;
-      username.value = user;
+      username.value = `${nome.value[0].toLowerCase()}.${cognome.value.toLowerCase()}`;
     }
   }
 
@@ -28,47 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Simulazione invio dati (puoi sostituire con invio a server)
-    const datiUtente = {
+    const dati = {
       nome: nome.value,
       cognome: cognome.value,
       username: username.value,
       password: password,
+      plan: "Starter" // oppure dinamico se vuoi estenderlo
     };
 
-    console.log('Dati raccolti:', datiUtente); // per debug
-
-    // Reindirizza alla pagina di conferma
-    window.location.href = 'conferma.html';
+    emailjs.send('service_5izkcug', 'template_70y5iqr', dati)
+    .then(() => {
+      window.location.href = 'conferma.html';
+    })
+    .catch((error) => {
+      console.error('Errore invio:', error);
+      status.textContent = 'Errore durante l’invio. Riprova.';
+      status.style.color = 'red';
+    });
   });
 });
-
-document.getElementById('activation-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  // Prendi i valori dal form
-  const nome = document.getElementById('nome').value;
-  const cognome = document.getElementById('cognome').value;
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-  
-  // Se hai un campo piano, prendi anche quello, altrimenti usa una variabile fissa
-  const plan = "Piano scelto"; // oppure recuperalo da input se c’è
-
-  // Invia l’email con EmailJS
-  emailjs.send('service_5izkcug', 'template_70y5iqr', {
-    nome: nome,
-    cognome: cognome,
-    username: username,
-    password: password,
-    plan: plan
-  })
-  .then(function(response) {
-    alert('Attivazione inviata con successo!');
-    window.location.href = 'conferma.html';  // pagina di ringraziamento
-  }, function(error) {
-    alert('Errore durante l\'invio, riprova.');
-    console.error('Errore EmailJS:', error);
-  });
-});
-
