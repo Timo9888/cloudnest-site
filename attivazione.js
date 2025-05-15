@@ -42,3 +42,63 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'conferma.html';
   });
 });
+
+
+document.getElementById('activation-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // raccogli i dati dal form
+  const nome = document.getElementById('nome').value;
+  const cognome = document.getElementById('cognome').value;
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  const plan = "Nome del piano"; // o recuperalo da qualche campo nascosto o sessione
+
+  // invia email con EmailJS
+  emailjs.send('service_5izkcug', 'template_70y5iqr', {
+    nome: nome,
+    cognome: cognome,
+    username: username,
+    password: password,
+    plan: plan,
+    // se serve, anche email utente, ecc.
+  })
+  .then(function(response) {
+    console.log('SUCCESS!', response.status, response.text);
+    alert('Dati inviati correttamente, grazie!');
+    // poi puoi fare redirect o mostrare una pagina di conferma
+    window.location.href = 'conferma.html';
+  }, function(error) {
+    console.log('FAILED...', error);
+    alert('Errore nell\'invio, riprova.');
+  });
+});
+document.getElementById('activation-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // raccogli i dati dal form
+  const nome = document.getElementById('nome').value;
+  const cognome = document.getElementById('cognome').value;
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  const plan = "Nome del piano"; // o recuperalo da qualche campo nascosto o sessione
+
+  // invia email con EmailJS
+  emailjs.send('service_5izkcug', 'template_70y5iqr', {
+    nome: nome,
+    cognome: cognome,
+    username: username,
+    password: password,
+    plan: plan,
+    // se serve, anche email utente, ecc.
+  })
+  .then(function(response) {
+    console.log('SUCCESS!', response.status, response.text);
+    alert('Dati inviati correttamente, grazie!');
+    // poi puoi fare redirect o mostrare una pagina di conferma
+    window.location.href = 'conferma.html';
+  }, function(error) {
+    console.log('FAILED...', error);
+    alert('Errore nell\'invio, riprova.');
+  });
+});
