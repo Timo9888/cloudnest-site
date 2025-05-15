@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  emailjs.init("5dTLT6bmdof0m4HBr"); // ⬅️ Sostituisci con la tua Public Key di EmailJS
+  // Inizializza EmailJS (inserisci la tua Public Key qui sotto)
+  emailjs.init("INSERISCI_LA_TUA_PUBLIC_KEY");
 
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('activation-form');
   const status = document.getElementById('status');
 
-  // Generazione username
+  // Genera username automatico
   function generaUsername() {
     if (nome.value && cognome.value) {
       username.value = `${nome.value[0].toLowerCase()}.${cognome.value.toLowerCase()}`;
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   nome.addEventListener('input', generaUsername);
   cognome.addEventListener('input', generaUsername);
 
+  // Gestione invio form
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -34,17 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
       cognome: cognome.value,
       username: username.value,
       password: password,
-      plan: "Starter" // oppure dinamico se vuoi estenderlo
+      plan: "Starter" // Puoi cambiarlo in base al piano scelto
     };
 
     emailjs.send('service_5izkcug', 'template_70y5iqr', dati)
-    .then(() => {
-      window.location.href = 'conferma.html';
-    })
-    .catch((error) => {
-      console.error('Errore invio:', error);
-      status.textContent = 'Errore durante l’invio. Riprova.';
-      status.style.color = 'red';
-    });
+      .then(() => {
+        window.location.href = 'conferma.html';
+      })
+      .catch((error) => {
+        console.error('Errore durante l’invio:', error);
+        status.textContent = 'Errore durante l’invio. Riprova.';
+        status.style.color = 'red';
+      });
   });
 });
