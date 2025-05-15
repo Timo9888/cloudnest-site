@@ -71,3 +71,4 @@ document.getElementById('activation-form').addEventListener('submit', function(e
     console.error('Errore EmailJS:', error);
   });
 });
+
