@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Completamento Attivazione - CloudNest</title>
   <link rel="stylesheet" href="attivazione.css" />
+  
+  <!-- EmailJS SDK v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Inizializza EmailJS con la tua public key
+    emailjs.init("5dTLT6bmdof0m4HBr");
+  </script>
 
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  emailjs.init('5dTLT6bmdof0m4HBr');
-</script>
-
-  <!-- Il tuo JS personalizzato -->
+  <!-- Tuo file JS -->
   <script defer src="attivazione.js"></script>
 </head>
 <body>
   <div class="container">
     <img src="Logo/cloudnest-logo.png" alt="Logo CloudNest" class="cloudnest logo" />
     <h1>Completa l'attivazione del tuo account</h1>
+
     <form id="activation-form">
       <label for="nome">Nome</label>
       <input type="text" id="nome" name="nome" required />
@@ -33,14 +35,12 @@
       <input type="password" id="password" name="password" required />
 
       <label for="confirm-password">Conferma Password</label>
-      <input type="password" id="confirm-password" name="confirm-password" required />
+      <input type="password" id="confirm-password" required />
 
       <button type="submit">Conferma Attivazione</button>
     </form>
-    <div id="status" role="alert" style="margin-top: 10px;"></div>
-    <div id="success-message" class="hidden" style="margin-top: 15px; color: green;">
-      Dati inviati! Attendi l'attivazione manuale da parte dell'amministratore.
-    </div>
+
+    <div id="status"></div>
   </div>
 </body>
 </html>
