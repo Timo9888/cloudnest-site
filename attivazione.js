@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  emailjs.init("LA_TUA_PUBLIC_KEY"); // ⬅️ Sostituisci con la tua Public Key di EmailJS
+  emailjs.init("5dTLT6bmdof0m4HBr"); // ⬅️ Sostituisci con la tua Public Key di EmailJS
 
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
