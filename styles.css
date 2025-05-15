@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to right, #eef2f3, #d9e2ec);
+    margin: 0;
+    padding: 0;
+    color: #1f2937;
+}
+header {
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.cloudnest-logo {
+    width: 200px; /* Modifica la dimensione del logo */
+    height: auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 700;
+}
+header p {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+}
+section {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.plans {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.plan {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.plan:hover {
+    transform: translateY(-5px);
+}
+.plan h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #3b82f6;
+}
+.plan p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+.plan strong {
+    font-size: 1.3rem;
+    color: #10b981;
+}
+.images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+.images img {
+    width: 300px;
+    border-radius: 1rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #1f2937;
+    color: #d1d5db;
+    font-size: 0.9rem;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    padding: 2rem;
+    z-index: 1000;
+    max-width: 400px;
+    text-align: center;
+}
+.popup.active {
+    display: block;
+}
+.popup input[type="email"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+}
+.popup button {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+.overlay.active {
+    display: block;
+}

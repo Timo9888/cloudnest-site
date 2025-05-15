@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Tuo Cloud Privato</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Collega il CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init('5dTLT6bmdof0m4HBr'); // Public Key
+        })();
+    </script>
+</head>
+<body>
+  <header>
+    <img src="Logo/cloudnest-logo.png" alt="cloudnest logo" class="cloudnest-logo"> <!-- Aggiungi qui il logo -->
+    <h1>Il Tuo Cloud Privato</h1>
+  </header>
+  <section>
+    <h2>I Nostri Piani</h2>
+    <div class="plans">
+      <div class="plan" onclick="showPopup('Base')">
+        <h3>Base</h3>
+        <p>200 GB</p>
+        <p><strong>1,99&euro;/mese</strong></p>
+      </div>
+      <div class="plan" onclick="showPopup('Standard')">
+        <h3>Standard</h3>
+        <p>500 GB</p>
+        <p><strong>2,99&euro;/mese</strong></p>
+      </div>
+      <div class="plan" onclick="showPopup('Premium')">
+        <h3>Premium</h3>
+        <p>1 TB</p>
+        <p><strong>4,99&euro;/mese</strong></p>
+      </div>
+    </div>
+    <div class="images">
+      <img src="https://www.synology.com/_static/images/products/DS220plus/01.jpg" alt="NAS Synology">
+      <img src="https://www.synology.com/_static/images/solutions/backup/backup_office.jpg" alt="Backup sicuro">
+    </div>
+  </section>
+
+  <div class="overlay" id="overlay" onclick="closePopup()"></div>
+  <div class="popup" id="popup">
+    <h3 id="popup-title"></h3>
+    <p>Inserisci la tua email per ricevere le istruzioni di attivazione:</p>
+    <input type="email" id="email" placeholder="esempio@email.com">
+    <button onclick="submitForm()">Invia</button>
+  </div>
+
+  <footer>
+    &copy; 2025 Il Tuo Cloud Privato - Tutti i diritti riservati
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
