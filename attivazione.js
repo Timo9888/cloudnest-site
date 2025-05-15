@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Inizializza EmailJS
-  emailjs.init("5dTLT6bmdof0m4HBr");
-
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
   const username = document.getElementById('username');
   const form = document.getElementById('activation-form');
   const status = document.getElementById('status');
 
+  // Genera username automatico
   function generaUsername() {
     if (nome.value && cognome.value) {
       username.value = `${nome.value[0].toLowerCase()}.${cognome.value.toLowerCase()}`;
@@ -34,20 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
       cognome: cognome.value,
       username: username.value,
       password: password,
-      plan: "Starter"
+      plan: "Starter" // modifica se vuoi
     };
-
-    console.log('Dati da inviare:', dati);
 
     emailjs.send('service_5izkcug', 'template_70y5iqr', dati)
       .then(() => {
-        alert("✅ Dati inviati con successo!");
-        window.location.href = 'conferma.html';
+        status.style.color = 'green';
+        status.textContent = '✅ Dati inviati con successo! Verrai reindirizzato...';
+
+        // Se vuoi fare redirect dopo 2 secondi
+        setTimeout(() => {
+          window.location.href = 'conferma.html';
+        }, 2000);
+
       })
       .catch((error) => {
         console.error('Errore durante l’invio:', error);
-        status.textContent = '❌ Errore durante l’invio. Controlla EmailJS.';
         status.style.color = 'red';
+        status.textContent = '❌ Errore durante l’invio. Controlla EmailJS.';
       });
   });
 });
