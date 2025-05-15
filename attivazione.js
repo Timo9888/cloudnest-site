@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('activation-form');
   const status = document.getElementById('status');
 
-  // Genera username automatico
   function generaUsername() {
     if (nome.value && cognome.value) {
       username.value = `${nome.value[0].toLowerCase()}.${cognome.value.toLowerCase()}`;
@@ -32,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cognome: cognome.value,
       username: username.value,
       password: password,
-      plan: "Starter" // modifica se vuoi
+      plan: "Starter",
+      to_email: "santosuossosimone8@email.com" // ← cambia con la tua email reale
     };
 
     emailjs.send('service_5izkcug', 'template_70y5iqr', dati)
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         status.style.color = 'green';
         status.textContent = '✅ Dati inviati con successo! Verrai reindirizzato...';
 
-        // Se vuoi fare redirect dopo 2 secondi
         setTimeout(() => {
           window.location.href = 'conferma.html';
         }, 2000);
