@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  emailjs.init("5dTLT6bmdof0m4HBr");
+
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
   const username = document.getElementById('username');
@@ -32,18 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
       username: username.value,
       password: password,
       plan: "Starter",
-      to_email: "santosuossosimone8@email.com" // ← cambia con la tua email reale
+      to_email: "santosuossosimone8@esempio.com" // Cambia con la tua mail reale se il template lo richiede
     };
 
-    emailjs.send('service_5izkcug', 'template_70y5iqr', dati)
+    console.log('Dati inviati a EmailJS:', dati);
+
+    emailjs.send('service_chih3ur', 'template_c5slxmt', dati)
       .then(() => {
         status.style.color = 'green';
-        status.textContent = '✅ Dati inviati con successo! Verrai reindirizzato...';
+        status.textContent = '✅ Dati inviati con successo!';
 
         setTimeout(() => {
           window.location.href = 'conferma.html';
         }, 2000);
-
       })
       .catch((error) => {
         console.error('Errore durante l’invio:', error);
