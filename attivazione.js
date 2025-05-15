@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Inizializza EmailJS (inserisci la tua Public Key qui sotto)
+  // Inizializza EmailJS
   emailjs.init("5dTLT6bmdof0m4HBr");
 
   const nome = document.getElementById('nome');
@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('activation-form');
   const status = document.getElementById('status');
 
-  // Genera username automatico
   function generaUsername() {
     if (nome.value && cognome.value) {
       username.value = `${nome.value[0].toLowerCase()}.${cognome.value.toLowerCase()}`;
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   nome.addEventListener('input', generaUsername);
   cognome.addEventListener('input', generaUsername);
 
-  // Gestione invio form
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -36,16 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
       cognome: cognome.value,
       username: username.value,
       password: password,
-      plan: "Starter" // Puoi cambiarlo in base al piano scelto
+      plan: "Starter"
     };
+
+    console.log('Dati da inviare:', dati);
 
     emailjs.send('service_5izkcug', 'template_70y5iqr', dati)
       .then(() => {
+        alert("✅ Dati inviati con successo!");
         window.location.href = 'conferma.html';
       })
       .catch((error) => {
         console.error('Errore durante l’invio:', error);
-        status.textContent = 'Errore durante l’invio. Riprova.';
+        status.textContent = '❌ Errore durante l’invio. Controlla EmailJS.';
         status.style.color = 'red';
       });
   });
