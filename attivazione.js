@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  emailjs.init("5dTLT6bmdof0m4HBr");
-
+  const form = document.getElementById('activation-form');
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
+  const email = document.getElementById('email');
   const username = document.getElementById('username');
-  const form = document.getElementById('activation-form');
   const status = document.getElementById('status');
 
+  // Genera username automatico
   function generaUsername() {
     if (nome.value && cognome.value) {
       username.value = `${nome.value[0].toLowerCase()}.${cognome.value.toLowerCase()}`;
@@ -16,13 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
   nome.addEventListener('input', generaUsername);
   cognome.addEventListener('input', generaUsername);
 
+  // Gestione invio form
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const password = document.getElementById('password').value;
-    const confirm = document.getElementById('confirm-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
 
-    if (password !== confirm) {
+    if (password !== confirmPassword) {
       status.textContent = '⚠️ Le password non corrispondono!';
       status.style.color = 'red';
       return;
@@ -31,27 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const dati = {
       nome: nome.value,
       cognome: cognome.value,
+      email: email.value,
       username: username.value,
       password: password,
-      plan: "Starter",
-      to_email: "santosuossosimone8@gmail.com" // Cambia con la tua mail reale se il template lo richiede
+      plan: "Starter"
     };
 
-    console.log('Dati inviati a EmailJS:', dati);
-
-    emailjs.send('service_chih3ur', 'template_c5slxmt', dati)
+    emailjs.send('service_5izkcug', 'template_70y5iqr', dati)
       .then(() => {
-        status.style.color = 'green';
-        status.textContent = '✅ Dati inviati con successo!';
-
-        setTimeout(() => {
-          window.location.href = 'conferma.html';
-        }, 2000);
+        window.location.href = 'conferma.html';
       })
       .catch((error) => {
         console.error('Errore durante l’invio:', error);
-        status.style.color = 'red';
         status.textContent = '❌ Errore durante l’invio. Controlla EmailJS.';
+        status.style.color = 'red';
       });
   });
 });
