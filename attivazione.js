@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       username: username.value,
       password: password,
       plan: "Starter",
-      to_email: "santosuossosimone8@esempio.com" // Cambia con la tua mail reale se il template lo richiede
+      to_email: "santosuossosimone8@gmail.com" // Cambia con la tua mail reale se il template lo richiede
     };
 
     console.log('Dati inviati a EmailJS:', dati);
