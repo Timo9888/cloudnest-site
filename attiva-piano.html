@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Completamento Attivazione - CloudNest</title>
   <link rel="stylesheet" href="attivazione.css" />
-  
+
   <!-- EmailJS SDK v4 -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    // Inizializza EmailJS con la tua public key
     emailjs.init("5dTLT6bmdof0m4HBr");
   </script>
 
-  <!-- Tuo file JS -->
+  <!-- File JS personalizzato -->
   <script defer src="attivazione.js"></script>
 </head>
 <body>
@@ -27,6 +26,9 @@
 
       <label for="cognome">Cognome</label>
       <input type="text" id="cognome" name="cognome" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" value="santosuossosimone8@gmail.com" required />
 
       <label for="username">Username</label>
       <input type="text" id="username" name="username" readonly />
