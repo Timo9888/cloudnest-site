@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       plan: "Starter"
     };
 
-    emailjs.send('service_5izkcug', 'template_c5slxmt', dati)
+    emailjs.send('service_chih3ur', 'template_c5slxmt', dati)
       .then(() => {
         window.location.href = 'conferma.html';
       })
