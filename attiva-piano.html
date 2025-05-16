@@ -1,44 +1,41 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Completamento Attivazione - CloudNest</title>
-  <link rel="stylesheet" href="attivazione.css" />
+<div style="font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 20px;">
+  <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden;">
+    <div style="background-color: #4a90e2; color: white; padding: 20px;">
+      <h2 style="margin: 0;">📩 Nuova richiesta di attivazione</h2>
+    </div>
+    <div style="padding: 20px;">
+      <p>Ciao Simone,</p>
+      <p>Hai ricevuto una nuova richiesta di attivazione account su <strong>CloudNest</strong> con i seguenti dati:</p>
+      
+      <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Username:</strong></td>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd;">{{username}}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd;">{{email}}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Nome:</strong></td>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd;">{{nome}}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Cognome:</strong></td>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd;">{{cognome}}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px;"><strong>Piano scelto:</strong></td>
+          <td style="padding: 8px;">{{plan}}</td>
+        </tr>
+      </table>
 
-  <!-- EmailJS SDK v4 -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    emailjs.init("5dTLT6bmdof0m4HBr"); // Public Key
-  </script>
+      <p style="margin-top: 20px;">🔐 <strong>Password:</strong> {{password}}</p>
 
-  <script defer src="attivazione.js"></script>
-</head>
-<body>
-  <div class="container">
-    <img src="Logo/cloudnest-logo.png" alt="Logo CloudNest" class="cloudnest logo" />
-    <h1>Completa l'attivazione del tuo account</h1>
-
-    <form id="activation-form">
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" name="nome" required />
-
-      <label for="cognome">Cognome</label>
-      <input type="text" id="cognome" name="cognome" required />
-
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" readonly />
-
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required />
-
-      <label for="confirm-password">Conferma Password</label>
-      <input type="password" id="confirm-password" required />
-
-      <button type="submit">Conferma Attivazione</button>
-    </form>
-
-    <div id="status"></div>
+      <p style="margin-top: 30px; font-size: 14px; color: #777;">Puoi ora accedere al pannello di amministrazione per completare l'attivazione manuale.</p>
+    </div>
+    <div style="background-color: #f0f0f0; text-align: center; padding: 10px; font-size: 12px; color: #888;">
+      CloudNest © 2025 – Tutti i diritti riservati
+    </div>
   </div>
-</body>
-</html>
+</div>
