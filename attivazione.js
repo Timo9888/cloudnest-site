@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('activation-form');
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
+  const emailUtente = document.getElementById('email-utente');
   const username = document.getElementById('username');
+  const plan = document.getElementById('plan');
   const status = document.getElementById('status');
 
   // Genera username automatico
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   nome.addEventListener('input', generaUsername);
   cognome.addEventListener('input', generaUsername);
 
-  // Gestione invio form
+  // Invio form
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (password !== confirmPassword) {
       status.textContent = '⚠️ Le password non corrispondono!';
-      status.style.color = 'red';
+      status.className = 'error';
       return;
     }
 
@@ -33,8 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
       cognome: cognome.value,
       username: username.value,
       password: password,
-      plan: "Starter",
-      email: "santosuossosimone8@gmail.com" // Email impostata direttamente nello script
+      plan: plan.value,
+      email_utente: emailUtente.value,         // email dell'utente (input)
+      email: "santosuossosimone8@gmail.com"    // tua email (destinatario)
     };
 
     emailjs.send('service_chih3ur', 'template_c5slxmt', dati)
@@ -44,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((error) => {
         console.error('Errore durante l’invio:', error);
         status.textContent = '❌ Errore durante l’invio. Controlla EmailJS.';
-        status.style.color = 'red';
+        status.className = 'error';
       });
   });
 });
