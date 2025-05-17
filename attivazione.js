@@ -2,9 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('activation-form');
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
-  const emailUtente = document.getElementById('email-utente');
+  const email = document.getElementById('email');
   const username = document.getElementById('username');
-  const plan = document.getElementById('plan');
   const status = document.getElementById('status');
 
   // Genera username automatico
@@ -17,16 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
   nome.addEventListener('input', generaUsername);
   cognome.addEventListener('input', generaUsername);
 
-  // Invio form
+  // Gestione invio form
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
+    const planSelezionato = document.querySelector('input[name="plan"]:checked').value;
 
     if (password !== confirmPassword) {
       status.textContent = '⚠️ Le password non corrispondono!';
-      status.className = 'error';
+      status.style.color = 'red';
       return;
     }
 
@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
       cognome: cognome.value,
       username: username.value,
       password: password,
-      plan: plan.value,
-      email_utente: emailUtente.value,         // email dell'utente (input)
-      email: "santosuossosimone8@gmail.com"    // tua email (destinatario)
+      plan: planSelezionato,
+      user_email: email.value, // questa è la mail dell'utente finale
+      email: "santosuossosimone8@gmail.com" // questa è la tua email, riceve la mail
     };
 
     emailjs.send('service_chih3ur', 'template_c5slxmt', dati)
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((error) => {
         console.error('Errore durante l’invio:', error);
         status.textContent = '❌ Errore durante l’invio. Controlla EmailJS.';
-        status.className = 'error';
+        status.style.color = 'red';
       });
   });
 });
