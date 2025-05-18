@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('activation-form');
   const nome = document.getElementById('nome');
   const cognome = document.getElementById('cognome');
-  const email = document.getElementById('email');
+  const emailUtente = document.getElementById('emailUtente');
   const username = document.getElementById('username');
+  const plan = document.getElementById('plan');
   const status = document.getElementById('status');
 
   // Genera username automatico
@@ -36,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
       username: username.value,
       password: password,
       plan: planSelezionato,
-      user_email: email.value, // questa è la mail dell'utente finale
-      email: "santosuossosimone8@gmail.com" // questa è la tua email, riceve la mail
+      emailUtente: emailUtente.value, // ✅ corretto
+      email: "santosuossosimone8@gmail.com" // ✅ la tua email
     };
 
     emailjs.send('service_chih3ur', 'template_c5slxmt', dati)
