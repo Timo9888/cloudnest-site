@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Completamento Attivazione - CloudNest</title>
+  <link rel="stylesheet" href="attivazione.css" />
+  <link rel="icon" type="image/png" href="Logo/cloudnest_logo.png">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("5dTLT6bmdof0m4HBr");
+  </script>
+  <script defer src="attivazione.js"></script>
+</head>
+<body>
+  <div class="container">
+    <img src="Logo/cloudnest-logo.png" alt="Logo CloudNest" class="cloudnest-logo" />
+    <h1>Completa l'attivazione del tuo account</h1>
 
+    <form id="activation-form">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="cognome">Cognome</label>
+      <input type="text" id="cognome" name="cognome" required />
+
+      <label for="emailUtente">La tua email</label>
+      <input type="email" id="emailUtente" name="emailUtente" required />
+
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" readonly />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="confirm-password">Conferma Password</label>
+      <input type="password" id="confirm-password" required />
+
+      <label>Seleziona il piano</label>
+      <div class="plan-options">
+        <input type="radio" id="Base" name="plan" value="Base" checked />
+        <label for="Base" class="plan-button">Base</label>
+
+        <input type="radio" id="Standard" name="plan" value="Standard" />
+        <label for="Standard" class="plan-button">Standard</label>
+
+        <input type="radio" id="Pro" name="plan" value="Pro" />
+        <label for="Pro" class="plan-button">Pro</label>
+      </div>
+
+      <button type="submit">Conferma Attivazione</button>
+    </form>
+
+    <div id="status"></div>
+  </div>
+</body>
+</html>
