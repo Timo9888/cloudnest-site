@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Tuo Cloud Privato</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Collega il CSS -->
+    <title>CloudNest - Il Tuo Cloud Privato</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Logo/cloudnest_logo.png">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function() {
@@ -14,28 +15,42 @@
 </head>
 <body>
   <header>
-    <img src="Logo/cloudnest-logo.png" alt="cloudnest logo" class="cloudnest-logo"> <!-- Aggiungi qui il logo -->
+    <img src="Logo/cloudnest-logo.png" alt="cloudnest logo" class="cloudnest-logo">
     <h1>Il Tuo Cloud Privato</h1>
   </header>
+
+  <!-- Sezione promozionale -->
+  <section class="promo">
+    <img src="img/nas-promo.jpg" alt="Promozione CloudNest">
+    <div class="promo-text">
+      <h2>Spazio sicuro, sempre con te</h2>
+      <p>Archivia i tuoi dati in modo protetto, veloce e accessibile ovunque. Prova CloudNest oggi stesso!</p>
+    </div>
+  </section>
+
   <section>
     <h2>I Nostri Piani</h2>
     <div class="plans">
       <div class="plan" onclick="showPopup('Base')">
+        <img src="img/base.png" alt="Piano Base">
         <h3>Base</h3>
         <p>200 GB</p>
         <p><strong>1,99&euro;/mese</strong></p>
       </div>
       <div class="plan" onclick="showPopup('Standard')">
+        <img src="img/standard.png" alt="Piano Standard">
         <h3>Standard</h3>
         <p>500 GB</p>
         <p><strong>2,99&euro;/mese</strong></p>
       </div>
       <div class="plan" onclick="showPopup('Premium')">
+        <img src="img/premium.png" alt="Piano Premium">
         <h3>Premium</h3>
         <p>1 TB</p>
         <p><strong>4,99&euro;/mese</strong></p>
       </div>
     </div>
+
     <div class="images">
       <img src="https://www.synology.com/_static/images/products/DS220plus/01.jpg" alt="NAS Synology">
       <img src="https://www.synology.com/_static/images/solutions/backup/backup_office.jpg" alt="Backup sicuro">
